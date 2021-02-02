@@ -18,6 +18,19 @@ class Sidebar {
      * при нажатии на кнопку .sidebar-toggle
      * */
     static initToggleButton() {
+        const body = document.querySelector('body');
+        const toggleBtn = document.querySelector('.sidebar-toggle');
+
+        toggleBtn.onclick = function() {
+
+            if (body.classList.contains('sidebar-open')) {
+                body.classList.remove('sidebar-open');
+                body.classList.add('sidebar-collapse');
+            } else {
+                body.classList.add('sidebar-open');
+                body.classList.remove('sidebar-collapse');
+            }
+        }
 
     }
 
