@@ -40,10 +40,10 @@ class AsyncForm {
      * }
      * */
     getData() {
-        const data = {};
+        const data = new FormData();
         const form = new FormData(this.element);
         for (var pair of form.entries()) {
-            data[pair[0]] = pair[1];
+            data.append([pair[0]], pair[1]);
         }
 
         return data;
