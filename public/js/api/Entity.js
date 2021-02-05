@@ -9,11 +9,17 @@ class Entity {
      * (в зависимости от того, что наследуется от Entity)
      * */
     static list(data, callback) {
+        let url = this.URL;
+
+        if (data) {
+            url += `?account_id=${data}`;
+        }
+
         createRequest({
-            url: this.URL,
+            url,
             method: 'GET',
             responseType: 'json',
-            data,
+            data: null,
             callback: (err, response) => {
                 callback(err, response);
             }

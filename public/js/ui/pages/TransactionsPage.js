@@ -20,9 +20,7 @@ class TransactionsPage {
     /**
      * Вызывает метод render для отрисовки страницы
      * */
-    update() {
-
-    }
+    update() {}
 
     /**
      * Отслеживает нажатие на кнопку удаления транзакции
@@ -62,9 +60,17 @@ class TransactionsPage {
      * в TransactionsPage.renderTransactions()
      * */
     render(options) {
+        this.clear();
+
         Account.get(options.account_id, (err, response) => {
             if (response.success) {
                 this.renderTitle(response.data.name);
+            }
+        });
+
+        Transaction.list(options.account_id, (err, response) => {
+            if (response.success) {
+                this.renderTransactions(response.data);
             }
         })
     }
@@ -75,7 +81,7 @@ class TransactionsPage {
      * Устанавливает заголовок: «Название счёта»
      * */
     clear() {
-
+        this.renderTransactions([]);
     }
 
     /**
@@ -91,7 +97,35 @@ class TransactionsPage {
      * в формат «10 марта 2019 г. в 03:20»
      * */
     formatDate(date) {
+        const newDate = new Date(date);
+        const months = [
+            'января',
+            'февраля',
+            'марта',
+            'апреля',
+            'мая',
+            'июня',
+            'июля',
+            'августа',
+            'сентября',
+            'октября',
+            'ноября',
+            'декабря',
+        ];
 
+        const month = months[newDate.getMonth()];
+
+        let hour = newDate.getHours();
+        if (hour < 10) {
+            hour = '0' + hour;
+        }
+
+        let minutes = newDate.getMinutes();
+        if (minutes < 10) {
+            minutes = '0' + minutes;
+        }
+
+        return `${newDate.getDate()} ${month} ${newDate.getFullYear()} г. в ${hour}:${minutes}`;
     }
 
     /**
@@ -99,7 +133,34 @@ class TransactionsPage {
      * item - объект с информацией о транзакции
      * */
     getTransactionHTML(item) {
+        const el = document.createElement('div');
+        el.className = `transaction transaction_${item.type} row`;
+        el.innerHTML = `
+            <div class="col-md-7 transaction__details">
+              <div class="transaction__icon">
+                  <span class="fa fa-money fa-2x"></span>
+              </div>
+              <div class="transaction__info">
+                  <h4 class="transaction__title">${item.name}</h4>
+                  <!-- дата -->
+                  <div class="transaction__date">${this.formatDate(item.created_at)}</div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="transaction__summ">
+              <!--  сумма -->
+                  ${item.sum} <span class="currency">₽</span>
+              </div>
+            </div>
+            <div class="col-md-2 transaction__controls">
+                <!-- в data-id нужно поместить id -->
+                <button class="btn btn-danger transaction__remove" data-id="${item.id}">
+                    <i class="fa fa-trash"></i>  
+                </button>
+            </div>
+      `
 
+        return el;
     }
 
     /**
@@ -107,6 +168,14 @@ class TransactionsPage {
      * используя getTransactionHTML
      * */
     renderTransactions(data) {
+        const content = this.element.querySelector('.content');
 
+        if (data.length) {
+            data.forEach(item => {
+                content.appendChild(this.getTransactionHTML(item));
+            })
+        } else {
+            content.innerHTML = '';
+        }
     }
 }
