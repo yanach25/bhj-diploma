@@ -16,12 +16,12 @@ const createRequest = (options = {}) => {
 
     xhr.onload = function() {
         if (xhr.status === 200) {
-            callback(xhr.response);
+            callback(null, xhr.response);
         }
     }
 
     xhr.onerror = function() {
-        callback(null, `запрос по адресу ${options.url} не был успешен`);
+        callback(`запрос по адресу ${options.url} не был успешен`);
     }
 
     xhr.open(method, options.url, async);

@@ -10,6 +10,7 @@ class User {
      * локальном хранилище.
      * */
     static setCurrent(user) {
+        console.log(user);
         localStorage.setItem('user', JSON.stringify(user))
     }
 
@@ -36,7 +37,7 @@ class User {
      * авторизованном пользователе.
      * */
     static fetch(callback) {
-
+        callback();
     }
 
     /**
