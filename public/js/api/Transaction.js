@@ -6,4 +6,3 @@
 class Transaction extends Entity {
 
 }
-
