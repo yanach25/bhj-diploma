@@ -54,5 +54,12 @@ class Sidebar {
             const modal = App.getModal('register');
             modal.open();
         }
+
+        const logoutBtn = document.querySelector('.menu-item_logout');
+
+        logoutBtn.onclick = function() {
+            User.unsetCurrent();
+            App.setState('init');
+        }
     }
 }
