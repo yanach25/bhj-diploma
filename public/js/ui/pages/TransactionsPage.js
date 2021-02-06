@@ -4,6 +4,7 @@
  * расходов конкретного счёта
  * */
 class TransactionsPage {
+    lastOptions;
     /**
      * Если переданный элемент не существует,
      * необходимо выкинуть ошибку.
@@ -15,12 +16,16 @@ class TransactionsPage {
             throw new Error('Элемент не существует');
         }
         this.element = element;
+
+        this.registerEvents();
     }
 
     /**
      * Вызывает метод render для отрисовки страницы
      * */
-    update() {}
+    update() {
+        this.render();
+    }
 
     /**
      * Отслеживает нажатие на кнопку удаления транзакции
@@ -29,7 +34,11 @@ class TransactionsPage {
      * TransactionsPage.removeAccount соответственно
      * */
     registerEvents() {
+        const removeAccountBtn = this.element.querySelector('.remove-account');
 
+        removeAccountBtn.onclick = () => {
+            this.removeAccount();
+        }
     }
 
     /**
@@ -41,7 +50,14 @@ class TransactionsPage {
      * для обновления приложения
      * */
     removeAccount() {
-
+        if (confirm('Удалить счет?')) {
+            Account.remove(this.lastOptions.account_id, (err, response) => {
+                if (response.success) {
+                    this.clear();
+                    App.update();
+                }
+            });
+        }
     }
 
     /**
@@ -60,19 +76,22 @@ class TransactionsPage {
      * в TransactionsPage.renderTransactions()
      * */
     render(options) {
-        this.clear();
+        if (options) {
+            this.lastOptions = options;
+            this.clear();
 
-        Account.get(options.account_id, (err, response) => {
-            if (response.success) {
-                this.renderTitle(response.data.name);
-            }
-        });
+            Account.get(options.account_id, (err, response) => {
+                if (response.success) {
+                    this.renderTitle(response.data.name);
+                }
+            });
 
-        Transaction.list(options.account_id, (err, response) => {
-            if (response.success) {
-                this.renderTransactions(response.data);
-            }
-        })
+            Transaction.list(options.account_id, (err, response) => {
+                if (response.success) {
+                    this.renderTransactions(response.data);
+                }
+            })
+        }
     }
 
     /**
@@ -82,6 +101,7 @@ class TransactionsPage {
      * */
     clear() {
         this.renderTransactions([]);
+        this.renderTitle('Название счёта');
     }
 
     /**

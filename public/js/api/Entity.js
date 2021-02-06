@@ -48,6 +48,17 @@ class Entity {
      * (в зависимости от того, что наследуется от Entity)
      * */
     static remove(data, callback) {
+        const formData = new FormData();
+        formData.append('id', data);
 
+        createRequest({
+            url: this.URL,
+            method: 'DELETE',
+            responseType: 'json',
+            data: formData,
+            callback: (err, response) => {
+                callback(err, response);
+            }
+        });
     }
 }
