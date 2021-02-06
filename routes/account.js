@@ -63,13 +63,13 @@ router.get("/:id?", upload.none(), function(request, response) {
     if (accountId) {
         let currentAccount = db.get("accounts").find({ id: accountId }).value();
         let currentAccountTransactions = db.get("transactions").filter({ account_id: currentAccount.id }).value();
-        currentAccount.sum = currentAccountTransactions.reduce((sum, a) => a.type === "EXPENSE" ? sum - a.sum : sum + a.sum, 0);
+        currentAccount.sum = currentAccountTransactions.reduce((sum, a) => a.type === "expense" ? sum - a.sum : sum + a.sum, 0);
         response.json({ success: true, data: currentAccount });
     } else {
         let accounts = db.get("accounts").filter({ user_id: userValue.id }).value();
         for (let i = 0; i < accounts.length; i++) {
             let transactions = db.get("transactions").filter({ account_id: accounts[i].id }).value();
-            accounts[i].sum = transactions.reduce((sum, a) => a.type === "EXPENSE" ? sum - a.sum : sum + a.sum, 0);
+            accounts[i].sum = transactions.reduce((sum, a) => a.type === "expense" ? sum - a.sum : sum + a.sum, 0);
         }
         response.json({ success: true, data: accounts });
     }

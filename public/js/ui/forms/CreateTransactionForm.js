@@ -25,7 +25,6 @@ class CreateTransactionForm extends AsyncForm {
             }
 
             const select = this.element.querySelector('.accounts-select');
-            console.log(select, response);
 
             response.data.forEach((item, index) => {
                 select.options[index] = new Option(item.name, item.id);
@@ -41,6 +40,14 @@ class CreateTransactionForm extends AsyncForm {
      * в котором находится форма
      * */
     onSubmit(data) {
-
+        Transaction.create(data, (err, response) => {
+            if (response.success) {
+                App.update();
+                this.element.reset();
+                const inputEl = this.element.querySelector('input');
+                const modal = App.getModal(inputEl.value === 'income' ? 'newIncome' : 'newExpense');
+                modal.close();
+            }
+        });
     }
 }

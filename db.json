@@ -15,19 +15,9 @@
   ],
   "accounts": [
     {
-      "name": "Магазин",
+      "name": "111",
       "user_id": "1",
-      "id": "2"
-    },
-    {
-      "name": "Бизнес",
-      "user_id": "1",
-      "id": "3"
-    },
-    {
-      "name": "1",
-      "user_id": "1",
-      "id": "17634kktjrmdk"
+      "id": "175bkkktv9vbq"
     }
   ],
   "transactions": [
@@ -56,51 +46,6 @@
       "name": "Копилка",
       "sum": 1500,
       "type": "income",
-      "user_id": "1"
-    },
-    {
-      "account_id": "2",
-      "created_at": "2019-09-26 16:23:02",
-      "id": "4",
-      "name": "Молочные продукты",
-      "sum": 100,
-      "type": "income",
-      "user_id": "1"
-    },
-    {
-      "account_id": "2",
-      "created_at": "2019-09-25 15:03:02",
-      "id": "5",
-      "name": "Фрукты",
-      "sum": 250,
-      "type": "income",
-      "user_id": "1"
-    },
-    {
-      "account_id": "2",
-      "created_at": "2019-09-25 15:03:02",
-      "id": "17",
-      "name": "Овощи",
-      "sum": 300,
-      "type": "income",
-      "user_id": "1"
-    },
-    {
-      "account_id": "2",
-      "created_at": "2019-09-26 14:47:02",
-      "id": "6",
-      "name": "Мясо",
-      "sum": 600,
-      "type": "income",
-      "user_id": "1"
-    },
-    {
-      "account_id": "2",
-      "created_at": "2019-09-27 13:27:02",
-      "id": "7",
-      "name": "Долг в банк",
-      "sum": 5000,
-      "type": "expense",
       "user_id": "1"
     },
     {
@@ -165,6 +110,150 @@
       "sum": 300000,
       "type": "expense",
       "user_id": "1"
+    },
+    {
+      "id": "17b0gkkttlddm",
+      "type": "INCOME",
+      "name": "11",
+      "sum": 111,
+      "account_id": "17634kktjrmdk",
+      "user_id": "1",
+      "created_at": "2021-02-06T14:35:53.721Z"
+    },
+    {
+      "id": "17bhskkttnzyb",
+      "type": "INCOME",
+      "name": "111",
+      "sum": 1,
+      "account_id": "17634kktjrmdk",
+      "user_id": "1",
+      "created_at": "2021-02-06T14:37:56.290Z"
+    },
+    {
+      "id": "17bhgkktttm9f",
+      "type": "INCOME",
+      "name": "111",
+      "sum": 1,
+      "account_id": "3",
+      "user_id": "1",
+      "created_at": "2021-02-06T14:42:18.482Z"
+    },
+    {
+      "id": "17b8skkttv6dz",
+      "type": "INCOME",
+      "name": "111",
+      "sum": 1,
+      "account_id": "17634kktjrmdk",
+      "user_id": "1",
+      "created_at": "2021-02-06T14:43:31.222Z"
+    },
+    {
+      "id": "17a9ckkttxq2g",
+      "type": "INCOME",
+      "name": "rf",
+      "sum": 1,
+      "account_id": "2",
+      "user_id": "1",
+      "created_at": "2021-02-06T14:45:30.039Z"
+    },
+    {
+      "id": "17b8kktu0d3c",
+      "type": "INCOME",
+      "name": "111",
+      "sum": 1,
+      "account_id": "2",
+      "user_id": "1",
+      "created_at": "2021-02-06T14:47:33.191Z"
+    },
+    {
+      "id": "179xokktu2vkh",
+      "type": "INCOME",
+      "name": "1",
+      "sum": 1,
+      "account_id": "2",
+      "user_id": "1",
+      "created_at": "2021-02-06T14:49:30.448Z"
+    },
+    {
+      "id": "176z0kktu4xot",
+      "type": "INCOME",
+      "name": "1",
+      "sum": 1,
+      "account_id": "2",
+      "user_id": "1",
+      "created_at": "2021-02-06T14:51:06.508Z"
+    },
+    {
+      "id": "173pckktu6938",
+      "type": "INCOME",
+      "name": "1",
+      "sum": 1,
+      "account_id": "2",
+      "user_id": "1",
+      "created_at": "2021-02-06T14:52:07.939Z"
+    },
+    {
+      "id": "17bl8kktu6f0k",
+      "type": "EXPENSE",
+      "name": "1",
+      "sum": 1,
+      "account_id": "2",
+      "user_id": "1",
+      "created_at": "2021-02-06T14:52:15.619Z"
+    },
+    {
+      "id": "1791ckktu8iha",
+      "type": "INCOME",
+      "name": "1",
+      "sum": 1,
+      "account_id": "2",
+      "user_id": "1",
+      "created_at": "2021-02-06T14:53:53.421Z"
+    },
+    {
+      "id": "173gokktu8q9j",
+      "type": "INCOME",
+      "name": "1",
+      "sum": 1,
+      "account_id": "2",
+      "user_id": "1",
+      "created_at": "2021-02-06T14:54:03.511Z"
+    },
+    {
+      "id": "17bvgkktu9o8e",
+      "type": "INCOME",
+      "name": "1",
+      "sum": 1,
+      "account_id": "2",
+      "user_id": "1",
+      "created_at": "2021-02-06T14:54:47.533Z"
+    },
+    {
+      "id": "177wkkktva340",
+      "type": "income",
+      "name": "test",
+      "sum": 1,
+      "account_id": "17634kktjrmdk",
+      "user_id": "1",
+      "created_at": "2021-02-06T15:23:06.431Z"
+    },
+    {
+      "id": "176dckktvnaf4",
+      "type": "income",
+      "name": "1",
+      "sum": 1,
+      "account_id": "175bkkktv9vbq",
+      "user_id": "1",
+      "created_at": "2021-02-06T15:33:22.431Z"
+    },
+    {
+      "id": "17an8kkwy95s9",
+      "type": "expense",
+      "name": "1",
+      "sum": 11,
+      "account_id": "175bkkktv9vbq",
+      "user_id": "1",
+      "created_at": "2021-02-08T19:09:40.616Z"
     }
   ]
 }
